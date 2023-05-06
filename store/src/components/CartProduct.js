@@ -1,3 +1,20 @@
+/**
+
+Okay so the main goal is to get the payment system done and dusted. 
+
+Later on you can polish things up and add styling and other bits and pieces. 
+
+So the plan now is to get the examples done and understood. 
+
+So what I'm going to do is go through some example repos. 
+
+ 
+
+
+*/
+
+
+
 import Button from 'react-bootstrap/Button';
 import { CartContext } from "../CartContext";
 import { useContext } from "react";

@@ -11,6 +11,7 @@ function NavbarComponent() {
     const handleShow = () => setShow(true);
 
     const checkout = async () => {
+    // This was 4000
         await fetch('http://localhost:4000/checkout', {
             method: "POST",
             headers: {
@@ -31,7 +32,7 @@ function NavbarComponent() {
     return (
         <>
             <Navbar expand="sm">
-                <Navbar.Brand href="/">Ecommerce Store</Navbar.Brand>
+                <Navbar.Brand href="/">E-Commerce Store</Navbar.Brand>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Button onClick={handleShow}>Cart ({productsCount} Items)</Button>
