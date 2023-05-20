@@ -1,7 +1,12 @@
-// sk_test_51LnUKJDM1jwCEz8OJG69szv032rIo4X0WrFMaXrqxu9g8fdohsL1y54JEUhFUKrqoBquVjN3AzpIFyrbN915bgcd00O5hqoGCJ
-// Coffee: price_1LnUTFDM1jwCEz8OGoOSXiSM
-// Sunglasses: price_1LnUTxDM1jwCEz8OAqHYTwKQ
-// Camera: price_1LnUUoDM1jwCEz8OvxIcJ7to
+
+ // const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY, {
+    //   apiVersion: "2022-08-01",
+    // });
+    
+    
+    // Price ID for product on Stripe Coffee 
+    // price_1N9PgGECwV7seobl06CfD61Z
+
 const express = require('express');
 var cors = require('cors');
 const stripe = require('stripe')('sk_test_51LnUKJDM1jwCEz8OJG69szv032rIo4X0WrFMaXrqxu9g8fdohsL1y54JEUhFUKrqoBquVjN3AzpIFyrbN915bgcd00O5hqoGCJ');
