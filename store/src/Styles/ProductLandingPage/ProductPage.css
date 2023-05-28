@@ -1,0 +1,491 @@
+*, *::after, *::before{
+    
+    padding: 0; 
+    margin: 0; 
+    
+    box-sizing: border-box;
+    
+    
+    /* outline: 4px solid lime;  */
+    
+        
+        
+    }
+    
+    html{
+    
+        scroll-behavior: smooth;
+        
+        color-scheme: light dark;
+        
+        
+    }
+    
+    
+    body{
+    
+    box-sizing: border-box;
+    padding: 0px; 
+    margin: 0px; 
+    
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    position: relative; 
+    width: 100vw; 
+    min-height: 100vh;
+    
+    }
+    
+    
+    
+    :root{
+    
+    /* Add in the root variables here  */
+        
+    }
+    
+    /* FIX THE POSITIONING HERE      */
+    .mainContainer{
+    
+       
+        
+        width: 100vw; 
+    
+        /* width: min(70ch, 100% - 4rem);  */
+        margin-inline: auto;
+        
+        
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+        height: auto; 
+        
+        
+        margin-right: clamp(4rem, 5vw + 1rem, 8rem); 
+        
+    }
+    
+    
+    .imageZoomPositionalContainer{
+    
+        /* Add in the code for this at a later date */
+        position: relative; 
+        z-index: 2000;
+        
+        
+    }
+    
+    
+    
+    .imageZoomContainer{
+    
+        
+    }
+    
+    
+    
+    
+    .productDetailsContainer{
+    
+        /* Add in the font weight and type here  */
+        
+        font-weight: 800;
+        font-style: italic;
+        width: auto; 
+        margin: auto auto !important; 
+        
+        
+        /* Add in the font size individually  */
+            
+    }
+    
+    
+    #productNameContainer{
+    
+      
+        
+        
+    }
+    
+    
+    #titleFirstSection{
+    
+        text-transform: uppercase;
+        text-decoration: solid;
+        font-style: italic;
+        font-size:  clamp(0.5rem, 1vw + 0.3rem, 1rem);  
+        
+        
+    }
+    
+    
+    #productTitleSectionContainer{
+        
+        /* Add in the main positional code here  */
+        
+        
+    }
+    
+    
+    #titleSecondSection{
+        
+    font-size: clamp(1rem, 1vw + 1rem, 2rem); 
+    
+        
+    }
+    
+    
+    #productMetaDataContainer{
+    
+        margin: 1rem auto; 
+        
+    }
+    
+    #productMetaData{
+    
+        /* font-size: 0.5rem; */
+        font-size: clamp(0.4rem, 0.5vw + 0.1rem, 0.7rem); 
+        
+    }
+    
+    #productSectionDividerLineContainer{
+    
+    margin: 3rem auto; 
+    /* width: 50vw;  */
+    width: clamp(12rem, 50vw + 1rem, 55rem); 
+    
+    position: relative; 
+    
+        
+        
+    }
+    
+    #productSectionDividerLine{
+    
+        height: 1px; 
+        
+        width: clamp(12rem, 35vw + 1rem, 44rem); 
+        
+        background-color: rgb(123, 124, 126);
+        
+    }
+    
+    
+    #productDetailsSectionContainer{
+        
+        position: relative; 
+        
+        
+        
+        
+    }
+    
+    
+    #productDetailsSection{
+        
+    }
+    
+    
+    
+    #productDetailRow{
+        
+        display: grid;
+        position: inherit; 
+        grid-template-columns: 1fr 2fr;
+        width: clamp(12rem, 23vw + 1rem, 55rem); 
+        
+        gap: 1.5rem; 
+        
+        
+    }
+    
+    
+    #productDetailContainer{
+    
+        
+    }
+    
+    
+    #productDetailHeader{
+    
+        
+        
+    }
+    
+    
+    #productDetailMeta{
+    
+        
+    }
+    
+    
+    /* Add in the container here  */
+    
+    
+    #sectionDividerLineContainer{
+    
+        margin: 3rem auto; 
+    
+        width: clamp(12rem, 50vw + 1rem, 55rem); 
+        
+        position: relative;
+        
+    }
+    
+    #sectionDividerLine{
+    
+        height: 2px; 
+        
+        width: clamp(12rem, 35vw + 1rem, 44rem); 
+        
+        background-color: rgb(123, 124, 126);
+    }
+    
+    
+    
+    #productPriceSectionContainer{
+    
+        
+        
+    }
+    
+    #productPrice{
+        
+        font-weight: 900;
+        /* font-size: 1.5rem; */
+        font-size: clamp(1.5rem, 2vw + 1rem, 2.8rem) !important; 
+        
+        text-transform: capitalize;
+        
+    
+        
+    }
+    
+    
+    #productButtonSectionContainer{
+    
+    margin: 2rem auto; 
+    position: relative; 
+    display: grid;
+        
+    }
+    
+    
+    #productButtonSection{
+    
+        display: grid;
+        position: relative;
+        /* width: 30vw;  */
+        width: clamp(12rem, 20vw + 1rem, 77rem); 
+        
+        grid-template-columns: 3fr 1fr;
+    }
+    
+    #productButtonContainer{
+        
+        
+    }
+    
+    
+    #productButton{
+    
+        
+        
+    }
+    
+    
+    
+    #addToListContainer{
+    
+        
+        
+    }
+    
+    
+    
+    
+    #addToListButton{
+    
+        
+        
+    }
+    
+    
+    /* Add in the media queries here  */
+    @media(max-width: 1000px){
+        
+        .mainContainer{
+            
+     
+        
+            
+            display: grid;
+            /* grid-template-rows: minmax(2rem, 70vh) minmax(2rem, 80vh) !important; */
+            
+            grid-template-columns: 1fr;
+            gap: 50vw !important ; 
+            
+            margin: 0 auto !important; 
+            width: 100vw; 
+            place-content: center;
+            
+            
+        }
+        
+        #productDetailRow{
+        }
+        
+        #productButtonSection{
+        
+         /* Reduce the amount of space between the two columns  */
+            
+            
+        }
+        
+        
+    }
+    
+    @media(max-width: 900px){
+        
+        #productDetailRow{
+        
+    
+            grid-template-columns: 1fr;
+            
+            
+        }
+        
+        #productButtonSection{
+        
+                grid-template-columns: 1fr;
+        }
+        
+        
+        .productDetailsContainer{
+            
+            margin: 12vh auto !important;
+            /* padding-top: 9vh !important ;  */
+            
+        }
+        
+        .imageZoomPositionalContainer{
+            
+            margin-top: 9vh; 
+            
+             
+             
+         }
+        
+        
+    }
+    
+    @media(max-width: 700px){
+    
+        .mainContainer{
+        
+            
+    
+        }
+        
+        .imageZoomPositionalContainer{
+            
+           margin-top: 15vh; 
+           
+           margin-left: -3rem !important;
+            
+        }
+        
+        
+        .productDetailsContainer{
+            
+            /* margin: 12vh auto !important; */
+            padding-top: 9vh !important ; 
+            
+        }
+        
+        
+    }
+    
+    
+    
+    /* Add in the orientation queries here  */
+    @media(orientation: landscape){
+    
+        .mainContainer{
+    
+            grid-template-columns: 1fr 1fr; 
+            
+            
+            
+        }
+        
+        /* Select the secondary containers here  */
+        .productDetailsContainer{
+    
+            
+            
+            
+            
+        }
+        
+        .imageZoomPositionalContainer{
+    
+           margin-top: 4rem; 
+           
+            
+            
+        }
+        
+        
+        
+        /* Add in the screen width media queries here  */
+        
+        
+        @media(max-width: 900px){
+            
+            .mainContainer{
+    
+                
+                
+            }
+            /* .productDetailsContainer{
+            
+                margin: 20vh auto !important;
+                padding-top: 9vh !important ; 
+                margin-top: 24vh !important; 
+                
+            } */
+            
+            /* Select the secondary containers here  */
+            
+        }
+        
+    }
+    
+    /* Add in the accessibility and preference queries here  */
+    
+    
+    
+    /* Add in the Container queries here  */
+    
+    
+    
+    /* Add in the Effects here  */
+    
+    
+    
+    /* Add in the animations here  */
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

@@ -1,0 +1,83 @@
+
+
+*{
+
+    /* outline: 4px     solid lime;  */
+    
+        
+        
+    }
+    
+    
+    body{
+    
+    min-height: 100vh !important ;
+    position: relative !important ;
+    overflow: auto !important;
+    
+        
+        
+    }
+    
+    
+    html{
+        
+    min-height: 100vh;
+    
+        
+    }
+    
+    #slideContainer{
+    
+    }
+    
+    #divCardContainer{
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    @media(max-width: 600px){
+        
+        .sliderContainer{
+            
+        }
+        
+        #sliderContainer{
+            
+            
+            margin-top: 300vh !important; 
+            
+            
+            
+        }
+        
+        
+    #cardsContainer{
+        
+       margin-left: 5vw !important;
+    
+    }
+        
+    }
+    
+    
+    @media(max-width: 1000px){
+        
+        
+        
+        #cardsContainer{
+        
+            margin-left: 6vw !important;
+         
+         }   
+        
+        
+    }
+    
+    
+    /* Add in the media queries here  */

@@ -1,14 +1,25 @@
 import {Button, Container, Navbar, Modal} from 'react-bootstrap';
+// import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+// import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { useState, useContext } from 'react';
 import { CartContext } from "../CartContext";
-import CartProduct from './CartProduct';
+// import CartProduct from './CartProduct';
+import CartProduct from '../Data/CartProduct';
 
+
+
+ 
 function NavbarComponent() {
     const cart = useContext(CartContext);
+
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
 
     const checkout = async () => {
     // This was 4000
@@ -32,11 +43,19 @@ function NavbarComponent() {
     return (
         <>
             <Navbar expand="sm">
-                <Navbar.Brand href="/">E-Commerce Store</Navbar.Brand>
+        <Navbar.Brand href="/">E-Commerce Store</Navbar.Brand>
+                
                 <Navbar.Toggle />
+                <Navbar.Collapse id="basic-navbar-nav">
+         
+        </Navbar.Collapse>
+        <Navbar.Brand href="/">E-Commerce Store</Navbar.Brand>
+        
+    
                 <Navbar.Collapse className="justify-content-end">
                     <Button onClick={handleShow}>Cart ({productsCount} Items)</Button>
                 </Navbar.Collapse>
+                
             </Navbar>
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

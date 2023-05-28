@@ -1,0 +1,9 @@
+
+.carouselContainer{
+    
+    width: 100vw; 
+    margin: 0 auto; 
+    display: grid;
+    place-content: center; 
+    
+}

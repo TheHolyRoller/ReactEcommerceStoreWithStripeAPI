@@ -1,0 +1,118 @@
+
+
+*, *::after, *::before{
+
+
+    scroll-behavior: smooth;
+    
+}
+
+
+html{
+
+scroll-behavior: smooth;
+
+    
+}
+
+body{
+    
+    position: relative; 
+    
+    
+    
+    
+}
+
+.container{
+
+display: grid;  
+/* grid-template-columns: 1fr 23fr; */
+
+width: 40vw; 
+/* margin: 0 auto;  */
+margin-left: clamp(7rem, 3vw + 1rem, 8rem); 
+
+
+place-content: center; 
+grid-template-columns: 1fr 3fr;
+position: absolute; 
+
+left: 0; 
+
+    
+}
+
+.imageRowContainer{
+
+
+    
+    
+    
+}
+
+#rowImage{
+    
+    max-height: 10vh;
+    min-height: 3rem;
+    
+    max-width: 20vw; 
+    min-width:  clamp(4rem, 4.5vw + 1rem, 15rem); 
+    margin: 1rem auto; 
+    
+}
+
+
+/* Add in the media queries here  */
+@media(max-width: 900px){
+
+    #rowImage{
+        
+    margin-right: 1.3rem; 
+    
+    margin-top: -0.20rem; 
+    }
+    
+    
+}
+
+@media (orientation: landscape){
+
+    
+    #rowImage{
+        
+        margin-right: 1.3rem; 
+        
+        margin-top: -0.15rem; 
+        }
+        
+        
+        .container{
+
+        margin-left: clamp(3rem, 3vw + 1rem, 8rem); 
+            
+            
+        }
+    
+    
+    
+}
+
+
+
+
+/* Add in the container queries here  */
+
+
+
+
+
+/* Add in the Effects here  */
+
+
+
+
+
+
+/* Add in the animations here  */
+

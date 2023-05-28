@@ -1,14 +1,6 @@
 /**
 
-Okay so the main goal is to get the payment system done and dusted. 
 
-Later on you can polish things up and add styling and other bits and pieces. 
-
-So the plan now is to get the examples done and understood. 
-
-So what I'm going to do is go through some example repos. 
-
- 
 
 
 */
@@ -18,18 +10,28 @@ So what I'm going to do is go through some example repos.
 import Button from 'react-bootstrap/Button';
 import { CartContext } from "../CartContext";
 import { useContext } from "react";
-import { getProductData } from "../productsStore";
+import { getProductData } from "../Data/products";
+
 
 function CartProduct(props) {
     const cart = useContext(CartContext);
+    
+    console.log("these are the props"); 
+    
+    console.log(props); 
+    console.log(props.id); 
+    
     const id = props.id;
     const quantity = props.quantity;
+    
+    // Find out why this is undefined 
     const productData = getProductData(id);
-
+    
+    console.log(productData); 
 
     return (
         <>
-            <h3>{productData.title}</h3>
+            <h3>{productData.productName}</h3>
             <p>{quantity} total</p>
             <p>${ (quantity * productData.price).toFixed(2) }</p>
             <Button size="sm" onClick={() => cart.deleteFromCart(id)}>Remove</Button>
