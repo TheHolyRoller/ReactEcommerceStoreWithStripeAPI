@@ -1,42 +1,22 @@
 /** 
+BING CHAT DO NOT DELETE!!!!!!!!!!
 
-Okay so let's just talk things through. 
+https://www.bing.com/search?form=WSBSH2&cvid=b77a9efa39124da78f9c26ef9989e207&nclid=90830066AB564B8DEF9A2EE70A6F1758&ts=1685439378759&q=What+can+the+new+Bing+chat+do%3f&showconv=1
 
-First of all we want this to render everything that we have in our list. 
-
-This means that we'll need the list context and everything that comes with it. 
-
-
-Then we'll need to create the basic page structure. 
+*/
 
 
-One important thing to note is that the list page structure must be 
-
-dynamic. 
+/**  
 
 
-This is because if more things are added to the list then more elements and page 
-components need to be rendered. 
-
-
-So the components need to rendered dynamically. 
-
-
-One way we could do this is by looping through everything in an Array that 
-
-stores all the items that are in the list. 
-
-Then for each item in the Array we could render out a component with the correct 
-
-information injected in. 
-
-
-Okay so that's great. 
 
 
 
 
 */
+
+
+
 
 
 import React from 'react'
@@ -48,57 +28,112 @@ import { PRODUCTS } from '../Data/products';
 import { CartContext } from "../CartContext";
 import { useContext } from "react";
 import { getProductData } from "../Data/products";
+import { ListItem } from '@mui/material';
+
+import {Button,  Card,  Modal} from 'react-bootstrap';
+
+
+import CartProduct from '../Data/CartProduct'; 
+import Cards from './Cards';
+import ListCards from './ListCards';
+import matches from 'dom/lib/matches';
+
 
 
 function List(props) {
     const list = useContext(ListContext);
-    // console.log(cart); 
-    
-    console.log("these are the props"); 
     
     console.log(props); 
-    console.log(props.id); 
     
     const id = props.id;
-    // const quantity = props.quantity;
+    
+    console.log("WE'RE TRYING TO GET THE ITEM ID HERE "); 
+    
+    console.log(list.items);
+    
+    let ids = [];
+    
+    
+    list.items.map((obj) => {
+    
+    if(obj.hasOwnProperty("id")){
+    
+      
+      console.log(obj.id); 
+      console.log("is this map ACTUALLY WORKING???!#@$@")
+    
+      ids.push(obj.id); 
+      
+      
+    }
+    
+    })
+    
+    const myItems = list.items; 
+    
+    let myProduct = [{}];
+    
+    // Loop through the products Array here and Add each object into a new Array that matches the id 
+    ids.forEach((id) => {
+      
+      let match  = PRODUCTS.find((obj) =>    obj.id === id); 
+      
+      if(match){
+        
+        console.log("THIS IS THE MATCHING ARRAY AT WORK ")
+        console.log(match)
+        myProduct.push(match); 
+
+      }
+      
+    } ) 
+    
+    
+    console.log("IS THIS THE ITEM ID??????")
+    
+    const myID = myItems.id; 
+    
+    
+    // Now loop through the matches Array and Extract the data from that and plug it 
+    // into each component 
+    
     const listCount = list.items.reduce((sum, product) => sum + product.quantity, 0);
-    console.log(listCount);
-    console.log("this is the list count "); 
     
-    
-    // Find out why this is undefined 
+    const listItems = list.items; 
+
     const productData = getProductData(id);
+
     
-    console.log(productData); 
-    const productsCount = list.items.reduce((sum, product) => sum + product.quantity, 0);
-
-    console.log(productsCount); 
-    console.log("these are the items in the list "); 
     
-
-
   return (
-  
-//   Find an example of mapping out components and apply it here 
 
-/** 
-{PRODUCTS.map((product, index) => (
-                   
-                <Cards className={product.productClass} product={product}  id={product.id} key={product.id}  image={product.productImage} title={product.productName}  > 
-                
-                <Link>
-                Learn More
-                </Link>  
-                
-                </Cards>
-               ))} 
-
-*/
-  
     <div>
       List 
-      {/* {list} */}
-      
+      {listCount > 0 ? 
+        <>
+     <p>Items in your cart:</p>
+        
+        {/* Find out why it''s saying this is not a function  */}
+     {myProduct.map((currentProduct, idx) => (
+
+       <ListCards  key={idx} product={currentProduct} image={currentProduct.productImage} title={currentProduct.productName}  quantity={currentProduct.quantity}>
+       Card
+       </ListCards>
+       
+        ))}
+        
+                            
+
+       <h1>Total: {list.getTotalCost().toFixed(2)}</h1>
+
+       <Button variant="success">
+          Remove from List 
+         </Button>
+         </>
+         
+          :
+          <h1>There are no items in your cart!</h1>
+      }
       
     </div>
   )

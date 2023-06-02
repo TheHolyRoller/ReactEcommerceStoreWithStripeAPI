@@ -41,10 +41,9 @@ import BasicExample from './components/BasicExample';
 
 import SearchSuggestion from './components/SearchSuggestion'; 
 import ProductCard from './components/ProductCard';
+// import ReviewForm from './components/ReviewForm'; 
 
 
-// Import the list context here 
-// import CartProvider from './CartContext';
 
 import ListProvider from './ListContext';
 import CartProvider from './CartContext';
@@ -53,16 +52,13 @@ import CartProvider from './CartContext';
 
 function App() {
   
-  console.log({selectedCardId}); 
-  console.log()
+  // console.log({selectedCardId}); 
+  // console.log()
   
   const productId = useParams(); 
   
   // Add in map function here to find the productID 
   const product = PRODUCTS.find((product) => product.id === productId); 
-  
-  
-  console.log(product); 
   
   return (
   <>
@@ -73,7 +69,6 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route index element={<Store product={product} />} />
-            {/* <Route index element={<List product={product} />} /> */}
             <Route path="success" element={<Success />} />
             <Route path="cancel" element={<Cancel />} />
             <Route path="list" element={<List/>}/>
@@ -87,26 +82,7 @@ function App() {
     </CartProvider>
     </ListProvider>
     
-    
-    {/* <Container> */}
-    
-    {/* <ProductPage/> */}
-    {/* <BasicExample/> */}
-    {/* <Page/> */}
-    {/* <SearchBar/> */}
-    
-    {/* <Page/> */}
-    
-    {/* <Store/> */}
-    
-    {/* <SearchSuggestion/> */}
-    
-    {/* <ProductCard/> */}
-    
-    {/* <List/>
-    <ListItem/> */}
-      
-    {/* </Container> */}
+
     
     
   </>

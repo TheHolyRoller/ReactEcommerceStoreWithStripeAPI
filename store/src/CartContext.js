@@ -33,21 +33,72 @@ Okay so there's CartContext
 
 And then there's card product that need to be cloned and then altered slightly. 
 
+Okay so let's just talk through what I'm doing now. 
+
+First of all I've fixed the issue of the items in the basket being ephemeral. 
+
+This was done by using the built in local storage on the browser. 
+
+We can tap into this local storage on the browser by creating a custom hook. 
+
+This custom hook taps into the window api and allocates memory into the local 
+storage by use of the useState hook. This useState hook has a default starting value 
+
+and then when the useEffect hook it will update the state in this variable when upon 
+
+render, rerendering and when the variables change that trigger the useEffect hook. 
+
+Now in order to pass in more than one value or to pass in an Array into Local Storage 
 
 
+we need to turn it into a JSON object and then Stringify that JSON object in order to 
+turn it into a string so that local storage can hold and later on retrieve it. 
 
 
+Okay so in order to set the value of the local storage using the useState hook we 
 
+first need to get that value and if it has not been set already we need to get the default 
+value of that. 
+
+It is important to note that the default value is set within the external file that uses 
+the useLocalStorage custom hook. 
+
+This means that the hook will not work unless the proper default values are entered in 
+
+within the file that uses the useLocalStorage custom hook. 
+
+In order to get the value from local Storage and update it we use the localStorage.getItem 
+
+built in function from it's api. 
+
+It is important to include some defensive and error catching code here in case there is 
+no value set and there is only the default value. 
+
+So in this case we use the if else shorthand in JavaScript making use of the ? : operators. 
+
+What follows the question mark is the code that will be executed is the first condition 
+or variable is truthy and then what follows the colon is what will be executed as a fallback 
+and it will be executed if the first condition or variable is falsy. 
+
+
+Okay so now we have the custom hook that gives us access to the local 
+storage within the browser. 
+
+What I want to do now is extend the functionality for the custom hook for the shopping list. 
 
 */
 
 
 import { createContext, useState } from "react";
+
 import { productsArray, getProductData } from "./Data/products";
 
-// import { useLocalStorage} from './hooks/useLocalStorage'; 
+
 import  useLocalStorage  from './hooks/useLocalStorage'; 
-// import { useLocalStorage } from "./hooks/useLocalStorage";
+
+import useSessionStorage from './hooks/useSessionStorage'; 
+
+
 
 export const CartContext = createContext({
     items: [],
@@ -60,10 +111,7 @@ export const CartContext = createContext({
 
 export function CartProvider({children}) {
 
-
-    const [cartProducts, setCartProducts] = useLocalStorage( [], []);
-    // const [value, setValue] = useLocalStorage("key", [])
-    
+    const [cartProducts, setCartProducts] = useSessionStorage( [], []);
     // [ { id: 1 , quantity: 3 }, { id: 2, quantity: 1 } ]
 
     function getProductQuantity(id) {

@@ -16,6 +16,7 @@ import { getProductData } from "../Data/products";
 function CartProduct(props) {
     const cart = useContext(CartContext);
     
+    
     console.log("these are the props"); 
     
     console.log(props); 
@@ -30,6 +31,7 @@ function CartProduct(props) {
     console.log(productData); 
 
     return (
+    
         <>
             <h3>{productData.productName}</h3>
             <p>{quantity} total</p>

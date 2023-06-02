@@ -1,43 +1,8 @@
 /** 
 
-Okay so let's just talk things through at the moment. 
-
-Now I have two working search bars. 
 
 
-The first one works to scrolling and the second one works with suggestions. 
 
-Although the first one will work even if you put in a suggestion that does not match the 
-id of one of the elements. 
-
-This is because it is not reset afterwards. 
-
-This can be fixed by resetting things when more input is placed into the search 
-bar. 
-
-
-Okay now the buttons for adding things to the basket and removing things to the 
-
-basket works. It will reset, however, if the page is refreshed which will need fixing. 
-
-
-Then I have the problem of checking out. It says that there is a network error. 
-
-This is because the id on the products does not match any of the requirements for 
-a stripe product id. 
-
-To fix this I'll need to go onto stripe and create a whole bunch of products. 
-
-
-Then I'll need to refactor the code for the cards so that they use this new 
-
-form of id instead of just the simple integers 
-
-And then we'll need to refactor the products javascript object and include these 
-ids into each object. 
-
-Then once that is done and all the errors are cleaned out. Then we can move onto to making
-the shopping List as well as customer feedback. 
 
 
 
@@ -105,88 +70,37 @@ function ProductPage(props) {
   // A variable that holds the item that matches the id parameter
   const item = PRODUCTS.find((item) => item.id === (id));
 
-console.log(item); 
-console.log("is this finally working???"); 
-console.log(item.id); 
 
 
 const {productName, price, productImage} = item; 
 
-  
-  // Shopping Cart 
-  // const cart = useContext(CartContext);
+
   
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
-  // const { id } = useParams();
 
-  // const productId = useParams(); 
-
-  // const item = PRODUCTS.find((item) => item.id === Number(id));
-  
-  
-  
-  console.log("is item null???"); 
-  // console.log(item); 
   
   
   const cart = useContext(CartContext);
   
   const list = useContext(ListContext);
-  
-  
-  console.log(cart); 
-  console.log("is this the cart"); 
-    
+
   
   const cardRefs = useRef([]);
   
-  
-  console.log(props); 
-  console.log(props.id); 
-  
-  
-  
-  
-  
-
-  // A state variable to store the selected item id
+  // You might want to use a Local storage hook for this 
   const [selectedId, setSelectedId] = useState(null);
   
   const productId = useParams();    
+
   
-  
-  
-  // Add in map function here to find the productID 
-  // const product = PRODUCTS.find((product) => product.id === productId); 
-  
-  
-  // This might be a problem as it is not tailored to the specific current card 
-  // const product = props.product; 
   const product = item; 
   
   const productQuantity = cart.getProductQuantity(product.id);
   
-  // Add in the function to get the List quantity here 
-  const listQuantity = list.getProductQuantity(product.id); 
-  
-  
-  console.log("this is the list quantity"); 
-  console.log(listQuantity); 
-  
-  
-  console.log(productQuantity); 
-  console.log("does product have a quantity "); 
-  
-  // Currently product quantity is 0 
-  
-  
-  // const productQuantity = cart.getProductQuantity(product.id);
 
-console.log("is product not defined!!!!")  
-  console.log(product);
+  const listQuantity = list.getProductQuantity(product.id); 
   
 
   useEffect(() => {
@@ -205,8 +119,10 @@ console.log("is product not defined!!!!")
   // A function that sets the selected id to the state variable when a card is clicked
   const handleClick = (id) => {
     setSelectedId(id);
-    console.log(id); 
-    console.log("is this logging the id ")
+    
+    
+    // console.log(id); 
+    // console.log("is this logging the id ")
   };
   
   
@@ -364,6 +280,8 @@ console.log("is product not defined!!!!")
                         </Form>
                         <Button variant="danger" onClick={() => list.deleteFromList(product.id)} className="my-2">Remove from list</Button>
                     </>
+                    
+                    
                     :
                     <Button variant="primary" onClick={() => list.addOneToList(product.id)}>Add To List  <FontAwesomeIcon icon={faHeart} />  </Button>
                 }

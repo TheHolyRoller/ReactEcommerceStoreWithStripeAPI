@@ -42,15 +42,17 @@ And then there's card product that need to be cloned and then altered slightly.
 */
 
 
-
-
-
-
-
-
-
 import { createContext, useState } from "react";
 import { productsArray, getProductData } from "./Data/products";
+
+
+
+// Import the useListStorage custom hook here 
+
+
+// Why is it saying this is not a function 
+import useListStorage from "./hooks/useListStorage";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 
 
@@ -64,22 +66,16 @@ export const ListContext = createContext({
 });
 
 // Change this to List provider 
-export function ListProvider({children}) {
+export default function ListProvider({children}) {
+    const [listProducts, setListProducts] = useListStorage([], []);
 
-// Change these to list products 
-    const [listProducts, setListProducts] = useState([]);
-    
     // [ { id: 1 , quantity: 3 }, { id: 2, quantity: 1 } ]
 
     function getProductQuantity(id) {
-        
-        // This might not be defined check where it originates from 
         const quantity = listProducts.find(product => product.id === id)?.quantity;
-        
         if (quantity === undefined) {
             return 0;
         }
-
         return quantity;
     }
 
@@ -106,6 +102,9 @@ export function ListProvider({children}) {
                     : product                                        // if statement is false
                 )
             )
+            console.log("These are the list product")
+            console.log(listProducts); 
+            
         }
     }
 
@@ -171,7 +170,7 @@ export function ListProvider({children}) {
     )
 }
 
-export default ListProvider;
+// export default ListProvider;
 
 
 // CODE DOWN HERE

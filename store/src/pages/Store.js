@@ -8,6 +8,7 @@ import Cards from '../components/Cards';
 import { useParams, Link } from 'react-router-dom';
 
 
+
 // import Cards from '../components/Cards';
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 import Paper from '@mui/material/Paper';import * as React from 'react';
@@ -23,7 +24,7 @@ import { selectedCardId } from '../components/CardList';
 
  export const handleClick = (props) => {
     
-    console.log(this.props); 
+    // console.log(this.props); 
 
 }
 
@@ -32,7 +33,6 @@ function Store(props) {
 
     console.log("is this working ")
     const { id } = useParams();
-    
     
     // const item = PRODUCTS.find((item) => item.id === Number(id));
     const [currentId, setCurrentId] = React.useState(); 

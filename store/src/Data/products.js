@@ -23,7 +23,7 @@ export const PRODUCTS = [
     productClass: "Iphones"
   },  
   {
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1NC2WoECwV7seoblAvg1TCWn",
     productName: "Macbook Pro 2022 (M1)",
     price: 1999.0,
     productImage: product2,
@@ -33,7 +33,7 @@ export const PRODUCTS = [
   },
   {
   
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1NC2WQECwV7seoblJcR9eEo2",
     productName: "Cannon M50 Camera",
     price: 699.0,
     productImage: product3,
@@ -41,7 +41,7 @@ export const PRODUCTS = [
     
   },
   {
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1NC2VUECwV7seoblE4HmCCv5",
     productName: "WLS Van Gogh Denim Jacket",
     price: 228.0,
     productImage: product4,
@@ -49,7 +49,7 @@ export const PRODUCTS = [
     
   },
   {
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1NC2ULECwV7seoblVFQrkjtz",
     productName: "LED Light Strips",
     price: 19.99,
     productImage: product5,
@@ -57,7 +57,7 @@ export const PRODUCTS = [
     
   },
   {
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1NC2TlECwV7seoblKLcqkZyo",
     productName: "SPECTRUM LS TEE",
     price: 68.0,
     productImage: product6,
@@ -65,7 +65,7 @@ export const PRODUCTS = [
     
   },
   {
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1NC2SAECwV7seoblsUpYIjNd",
     productName: "AUTO SERVICE SHIRT by GOLF WANG",
     price: 120.0,
     productImage: product7,
@@ -74,7 +74,7 @@ export const PRODUCTS = [
   },
   {
   
-    id: "price_1NC2XCECwV7seoblbhR4X48B",
+    id: "price_1N9QWMECwV7seobltcqPgIAW",
     productName: "DON'T TRIP UNSTRUCTURED HAT",
     price: 40.0,
     productImage: product8,

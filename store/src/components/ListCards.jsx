@@ -6,6 +6,29 @@ What do I want to do now?
 
 
 
+Okay so here's my idea for what to do about the undefined situation. 
+
+
+First of all if I have the id that's a good start. If I don't have the id then my next 
+
+task it to get the id one way or another. 
+
+
+Right so if I have the id the idea is simple I import the products Array. 
+
+And then I loop through the items array and retrieve everything from the products 
+
+Array that matches the id from the item Array. 
+
+Then I add the results into a new Array and then the new Array is looped through and 
+
+all the results and data points are injected into the rendered card. 
+
+Okay so that sounds like a pretty good plan. 
+
+
+
+
 
 */
 
@@ -42,7 +65,7 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import IconButton from '@mui/material/IconButton';
 
 
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+// import ShoppingListIcon from '@mui/icons-material/ShoppingList';
 import FeaturedPlayListIcon from '@mui/icons-material/FeaturedPlayList';
 
 import { palette } from '@mui/system';
@@ -55,39 +78,51 @@ import { StyledEngineProvider } from "@mui/material/styles";
 import { Box } from '@mui/material';
 // Used to import CARD 
 // import { Button, Form, Row, Col } from 'react-bootstrap';
-import { CartContext } from '../CartContext';
+
+
+
+import { ListContext } from '../ListContext';
 import { useContext, useRef, useEffect, useState } from 'react';
-
-
 
 import { PRODUCTS } from '../Data/products';
 
-
-const Cards = (props ) => {
+const ListCards = (props ) => {
   
   const { id } = useParams();
-  
-  // console.log("is item null???"); 
-  
-  
-  const cart = useContext(CartContext);
 
-  
+  const list = useContext(ListContext); 
   const cardRefs = useRef([]);
   
   
+  
+  // console.log("THESE ARE THE PROPS ID ARE THEY THERE!!!!+++++++++")
+  // console.log(props); 
+  // console.log(props.product);
+  
+  const name =  props.product;
+  
+  
+  // console.log(name.id); 
+  // console.log("this is logging the id"); 
+  
+  
+  
+  
+  
+
+  // A state variable to store the selected item id
   const [selectedId, setSelectedId] = useState(null);
   
   const productId = useParams();    
 
-  console.log("this is the product id "); 
-  console.log(productId); 
-  
-  
   const product = props.product; 
   
-  const productQuantity = cart.getProductQuantity(product.id);
-
+  // console.log("this is the ListCARD ListCARD IMAGE IMAGE IMAGE++++!!!!!");
+  // console.log(props.image);
+  
+  // Find out if this actually works 
+  const productQuantity = list.getProductQuantity(product.id);
+  
   useEffect(() => {
     cardRefs.current.forEach(ref => console.log(ref));
 
@@ -103,13 +138,14 @@ const Cards = (props ) => {
   
   const handleClick = (id) => {
     setSelectedId(id);
-
+    console.log(id); 
+    console.log("is this logging the id ")
   };
+
 
     return (
       <>
       
-
       <Paper   position="sticky"  className="paper" sx={{background: "#0a1929", mt: 4, color: "#ffffff"}} style={{}} >
       <Grid  sx={{m: 3, background: "#001e3b"}} style={{minHeight: "30vh", }}  container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid sx={{background: "#001e3b"}}  style={{minHeight: "30vh"}}  xs={12} sm={4}>
@@ -136,46 +172,40 @@ const Cards = (props ) => {
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
-              {/* Find out why this is not working  */}
+              {/* THIS NEEDS FIXING  */}
               <Link to={`/${props.id}`}>View Details</Link> 
-      
       
               </Button>
             </CardActions>
             
-            {/* Add in the cart buttons here  */}
+            
+
             { productQuantity > 0 ?
                     <>
                         <Form as={Row}>
-                            <Form.Label column="true" sm="6">In Cart: {productQuantity}</Form.Label>
+                            <Form.Label column="true" sm="6">In List: {productQuantity}</Form.Label>
                             <Col sm="6">
-                                <Button sm="6" onClick={() => cart.addOneToCart(product.id)} className="mx-2">+</Button>
-                                <Button sm="6" onClick={() => cart.removeOneFromCart(product.id)} className="mx-2">-</Button>
+                                <Button sm="6" onClick={() => list.addOneToList(product.id)} className="mx-2">+</Button>
+                                <Button sm="6" onClick={() => list.removeOneFromList(product.id)} className="mx-2">-</Button>
                             </Col>
                         </Form>
-                        <Button variant="danger" onClick={() => cart.deleteFromCart(product.id)} className="my-2">Remove from cart</Button>
+                        <Button variant="danger" onClick={() => list.deleteFromList(product.id)} className="my-2">Remove from list</Button>
                     </>
                     :
-                    <Button variant="primary" onClick={() => cart.addOneToCart(product.id)}>Add To Cart</Button>
+                    <Button variant="primary" onClick={() => list.addOneToList(product.id)}>Add To List</Button>
                 }
             
             
           </Card>
       </Grid>
-      
           
       </Grid>
       </Paper>
                 </>
         )
     
-    
-  
-
- 
-
-  
   
 }
 
-export default Cards
+export default ListCards;
+

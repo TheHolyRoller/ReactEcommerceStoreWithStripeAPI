@@ -14,10 +14,12 @@ const data = [
 ];
 
 
+
  export default function CardList() {
 
   
   const cardRefs = useRef([]);
+
 
   
   const [selectedId, setSelectedId] = useState(null);

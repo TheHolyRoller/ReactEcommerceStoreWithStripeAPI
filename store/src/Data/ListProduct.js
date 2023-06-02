@@ -18,6 +18,7 @@ import { getProductData } from "../Data/products";
 function ListProduct(props) {
 
 
+
     // Change this to list and List context 
     const list = useContext(ListContext);
     // console.log(cart); 
@@ -28,20 +29,21 @@ function ListProduct(props) {
     console.log(props.id); 
     
     const id = props.id;
+    
     const quantity = props.quantity;
     
     // Find out why this is undefined 
-    const productData = getProductData(id);
+    const listData = getProductData(id);
     
-    console.log(productData); 
+    console.log(listData); 
     
 
 
     return (
         <>
-            <h3>{productData.productName}</h3>
+            <h3>{listData.productName}</h3>
             <p>{quantity} total</p>
-            <p>${ (quantity * productData.price).toFixed(2) }</p>
+            <p>${ (quantity * listData.price).toFixed(2) }</p>
             <Button size="sm" onClick={() => list.deleteFromList(id)}>Remove</Button>
             <hr></hr>
         </>
