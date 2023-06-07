@@ -127,59 +127,16 @@ const querySnapshot = await getDocs(messagesRef);
 
 function ChatComponent() {
 
-  const rating = useSelector((state) => state.rating);
-  const text = useSelector((state) => state.text);
-  // Get the reviews prop from the Redux store
-//   const reviews = useSelector((state) => state.reviews);
-
-  // Get the dispatch function to dispatch actions
-  const dispatch = useDispatch();
-
-  // Handle the change of rating input
-  const handleRatingChange = (event, newValue) => {
-    // Check if the input is a valid number between 1 and 5
-    if (typeof newValue === 'number' && newValue >= 1 && newValue <= 5) {
-      // Dispatch the action to update the rating in the store
-      dispatch(updateRating(newValue));
-    } else {
-      // Show an error message
-      alert('Please enter a valid rating between 1 and 5.');
-    }
-  };
-
-  // Handle the change of text input
-  const handleTextChange = (event) => {
-    // Get the value of the input
-    const value = event.target.value;
-    // Dispatch the action to update the text in the store
-    dispatch(updateText(value));
-  };
-
-  // Handle the click of submit button
-  const handleSubmit = () => {
-    // Check if the rating and text are not empty
-    if (rating && text) {
-      // Dispatch the action to add a new review to the store
-      // dispatch(addReview({ rating, text }));
-      // Clear the rating and text inputs
-      dispatch(updateRating(0));
-      dispatch(updateText(''));
-    } else {
-      // Show an error message
-      alert('Please enter a rating and a text.');
-    }
-  };
-  
 
 
   const [count, setCount] = useState(0)
   const [productID, setProductID] = useState("");
   
   
-  // const [rating, setRating] = useState(); 
+  const [rating, setRating] = useState(); 
 
   const handleChange = (event, newValue) => {
-    // setRating(newValue);
+    setRating(newValue);
     
     console.log("THIS IS THE STAR RATING !!!!!"); 
     console.log(rating); 
@@ -254,15 +211,15 @@ const messageArray = [];
         <Rating
           name="rating"
           value={rating}
-          onChange={handleRatingChange}
+          // onChange={handleRatingChange}
           icon={<StarIcon fontSize="large" />}
         />
       </Box>
       <Box display="flex" alignItems="center">
         <Typography variant="body1">Text:</Typography>
-        <input type="text" value={text} onChange={handleTextChange} />
+        {/* <input type="text" value={text} onChange={handleTextChange} /> */}
       </Box>
-      <button onClick={handleSubmit}>Submit</button>
+      {/* <button onClick={handleSubmit}>Submit</button> */}
       <Box>
         <Typography variant="h6">Reviews</Typography>
         {reviews.map((review, index) => (
