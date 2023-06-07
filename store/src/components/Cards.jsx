@@ -1,8 +1,88 @@
 /** 
 
-Okay so I have a card and that's a great start. 
+Okay so let's just talk things through now. 
 
-What do I want to do now? 
+
+First of all I have the main functionality down. 
+
+
+
+All I need to do now is make sure that I can change the collection id dynamically 
+
+without any upsets. 
+
+And then I need to create a GUI and form as well as integrate everything into 
+the main project. 
+
+I also need to add in the start rating functionality as well as the functionality 
+
+give aggregate an average overall score. 
+
+
+
+But the plan now is to assign the id the id of the product and then fetch the collection 
+using that. If that does not work completely then I'll put the collection 
+
+query in the same file as the file that has the original value of the product id. 
+
+so that it is more likely to be kept up to date and change with everything else. 
+
+And if that doesn't work I'll work on a few other solutions. 
+
+Including context top down prop drilling exporting some other variables and 
+checking values and then changing each value depending on the outcome. I can also 
+
+ask on forums and look around at examples. 
+
+Either way there are plenty of options and each one pushed to the limit should work. 
+
+
+So now there's the question of how do I create the collection. 
+
+Well it's basically similar to how I obtain a collection. 
+
+First of all we land on the right page and in the process the product id is captured. 
+
+This product id is then passed onto the id of the collection we either want to create or 
+add to. 
+
+
+The only question I have about this method is when and how things are rendered and updated. 
+
+Will the product id be updated and contain a value in time. That's the only question I 
+have about this. 
+
+There are also a few ways I could probably make this work if there is some trouble. 
+
+
+
+Now there is one idea to keep in mind. 
+
+That is assigning the product id only when an Item has been added to the list. 
+
+This will still need some thinking through as it would also be good to view the product 
+
+reviews even if the product is not in the list. 
+
+One way of getting around this would be collect all the product ids into an Array and 
+then once the correct product id has been found to assign it to the collection 
+id. 
+
+There are a few more ways that I could make this work and make it more efficient but 
+that is the idea in general. I could also combine it with a few other techniques. 
+
+Like functions and context. 
+
+But let's leave it at that for now. 
+
+In the mean time. Layout all the options and thoroughly research and exhaust each one 
+
+before trying a radically new approach as so much time has been invested in this 
+approach so far. 
+
+
+Okay that is the action plan so far. 
+
 
 
 
@@ -18,13 +98,10 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { Container, Form, Row, Col } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom'; // import the Link component from react-router-dom
 
-
-
-
-
 import Paper from '@mui/material/Paper';
 import ButtonBase from '@mui/material/ButtonBase';
-// import Grid from '@mui/material/Grid'; // Grid version 1
+
+
 import Grid from '@mui/material/Unstable_Grid2'; // Grid version 2
 
 import { styled, alpha } from '@mui/material/styles';
@@ -51,10 +128,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from "@mui/material/styles";
 
 
-// import {CssBaseline} from "@mui/material/CssBaseline";
+
 import { Box } from '@mui/material';
-// Used to import CARD 
-// import { Button, Form, Row, Col } from 'react-bootstrap';
+
 import { CartContext } from '../CartContext';
 import { useContext, useRef, useEffect, useState } from 'react';
 

@@ -1,14 +1,12 @@
 
 
 import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 
-// import NavbarComponent from './components/Navbar';
 import { BrowserRouter, Routes, Route, useParams} from "react-router-dom";
 
 import { Card, Container } from 'react-bootstrap';
 import {Row, Col} from 'react-bootstrap';
-import {Hidden, ListItem} from '@mui/material'
+import {Hidden, ListItem } from '@mui/material'
 
 
 
@@ -41,23 +39,17 @@ import BasicExample from './components/BasicExample';
 
 import SearchSuggestion from './components/SearchSuggestion'; 
 import ProductCard from './components/ProductCard';
-// import ReviewForm from './components/ReviewForm'; 
-
-
 
 import ListProvider from './ListContext';
 import CartProvider from './CartContext';
-
-
+import ChatComponent from './utilities/ChatComponent';
+import ReivewPage from './components/ReivewPage';
+import Rating from './components/Rating'; 
 
 function App() {
   
-  // console.log({selectedCardId}); 
-  // console.log()
   
-  const productId = useParams(); 
-  
-  // Add in map function here to find the productID 
+  let productId = useParams(); 
   const product = PRODUCTS.find((product) => product.id === productId); 
   
   return (
@@ -74,7 +66,10 @@ function App() {
             <Route path="list" element={<List/>}/>
             
             
-            <Route path=":id" element={<ProductPage product={product}  />} />
+            <Route path=":id" element={<ProductPage product={product}  />}>
+              
+              
+            </Route>
             <Route path="/profile" element={<Profile/>}/>
           </Routes>
         </BrowserRouter>
@@ -82,7 +77,11 @@ function App() {
     </CartProvider>
     </ListProvider>
     
-
+    
+    {/* <Container>
+      
+      
+    </Container> */}
     
     
   </>

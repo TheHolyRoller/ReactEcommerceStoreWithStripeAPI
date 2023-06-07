@@ -22,27 +22,17 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { selectedCardId } from '../components/CardList';
 
 
- export const handleClick = (props) => {
-    
-    // console.log(this.props); 
-
-}
-
 function Store(props) {
 
 
-    console.log("is this working ")
     const { id } = useParams();
     
-    // const item = PRODUCTS.find((item) => item.id === Number(id));
     const [currentId, setCurrentId] = React.useState(); 
-
-
+        
     return (
         <>
             <h1 align="center" className="p-3">Welcome to the store!</h1>
             <Row xs={1} md={3} className="g-4">
-                
                
                {PRODUCTS.map((product, index) => (
                    
@@ -54,6 +44,7 @@ function Store(props) {
                 
                 </Cards>
                ))} 
+                
                 
             
             </Row>

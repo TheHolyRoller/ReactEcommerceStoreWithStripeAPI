@@ -445,7 +445,7 @@ function Footer() {
            </h2> 
 
           </ButtonBase>
-           <Signup/>
+           {/* <Signup/> */}
             {/* Add in the Grid Container and Sub Grid containers here  */}
             <Grid item  container sx={{}} style={{}}   >
 

@@ -1,75 +1,30 @@
 /** 
 
-Okay so want we want now is to get the list count. 
-
-We can get the list count by using the same code that we use to get the products count. 
-
-Then we render something is there are no products in the list. 
-
-Now we get the products count by importing in the List context. 
-
-Now from the list context we have the items variable. This items variable 
-is casted to a Array type and it obtains it's contents from the state variable that 
-is set to the products that are added to the list. 
-
-These products are added to the list within the file and this is accomplished with functions 
-within this file along with the use of event listeners. 
-
-The way that the state is set for the state variable that passes it's contents to the items 
-array is through the use of a custom hook that in turn uses two native react hooks. 
-
-It also uses a window interface with it's accompanying api. 
-
-And it uses the local storage to make the state of the variable which is in itself a 
-an Array which is then converted to a JSON object which is then in turn converted 
-to a string using the stringify function. 
+Okay so let's just talk things through now. 
 
 
-Now we have the state variable and it passes it's value onto the items array. 
-Now this items array is an intrinsic part of the context of file. 
+The main focus for now is getting the star rating component working and then getting the 
+average rating component working. 
 
-This way we can import and then use the useContext hook and assign it to a variable. 
+Once that is done then we can style each review and position all the cards and review section. 
 
-This will give us the complete context of that context file. 
+And then add a few more finishing touches to that. 
+
+I've decided not to move the review component to a different page. 
+
+There are just too many things to fix and get working and the current solutions just 
+don't seem to work so I'm keeping the reviews on the same page. 
+
+I'll just tuck them away at the bottom of the page above the footer. 
 
 
-This means that we can now access the functions and data structures that make up that 
-particular context. 
-
-We can do this by using the dot operator. 
-
-This things are nested then we just reach into that nesting with the another dot operator 
-on the original thing that we are trying to access. 
+Right so now I need to add the start rating feature. 
 
 
 
-Okay so that's great. 
 
-So now what we want to do is take the list product and make sure that it is all up to scratch. 
 
-And we want to import the correct things into it. 
 
-Then we want to take the list and import in the context and everything else that we need. 
-
-Once that is done we want to access the item Array from our List Context. 
-
-Once this has been assigned to a variable then we want to create a place in this file 
-to render out the JSX code for our List Item. 
-
-The way we do this is by taking the variable that has been assigned the item array 
-
-and we map through it. 
-
-Within the Map render section we take our imported list item functional component. 
-
-And we assign it the necessary props. This could be item id and a few other things. 
-
-These props will come from our context. 
-
-Now once we have assigned the List Item component our props it will then have access to 
-the props it needs within the native file of the functional component. 
-
-Once this has been done then we can work on getting the list fleshed out. 
 
 
 
