@@ -87,6 +87,43 @@ Okay that is the action plan so far.
 
 
 
+
+Okay so just talk things through at the moment. The only thing left to do for the 
+
+search bar is to Add a Reference array into the Array of Cards. 
+
+
+This should be quite doable. And it's something that can be done tomorrow. 
+
+
+Okay so that's great. With the Cards that is the component we can add in a ref element 
+
+And then set it to props.ref or something similar that should work quite well. 
+
+And if not I can try and generate a few things on Bing and ask on a few forums. 
+
+And read and look at a bunch of examples. 
+
+
+Okay so let's focus on the task at hand and keep the momentum going. 
+
+First of all let's create the different product databases for each page. 
+
+
+This means creating a js file jsut like the products file but this has different products 
+
+And product descriptions. 
+
+Then it will be time to create the Card pages that use the different product files. 
+
+
+Once that is done then I can create a store equivalent but it is for one of the pages. 
+
+Okay that sounds great. For now don't worry about the content that 
+
+can be left for another day when the styling and polishing is being done. 
+
+
 */
 
 import * as React from 'react';
@@ -127,30 +164,22 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles'; 
 import { StyledEngineProvider } from "@mui/material/styles";
 
-
+// import {  makeStyles } from "@material-ui/makeStyles";
+import CssBaseline from '@mui/material/CssBaseline';
 
 import { Box } from '@mui/material';
 
 import { CartContext } from '../CartContext';
 import { useContext, useRef, useEffect, useState } from 'react';
 
-
-
 import { PRODUCTS } from '../Data/products';
 
 
 const Cards = (props ) => {
   
-  const { id } = useParams();
-  
-  // console.log("is item null???"); 
-  
-  
   const cart = useContext(CartContext);
-
   
   const cardRefs = useRef([]);
-  
   
   const [selectedId, setSelectedId] = useState(null);
   
@@ -158,7 +187,6 @@ const Cards = (props ) => {
 
   console.log("this is the product id "); 
   console.log(productId); 
-  
   
   const product = props.product; 
   
@@ -177,23 +205,33 @@ const Cards = (props ) => {
   };
 
   
+  
   const handleClick = (id) => {
     setSelectedId(id);
 
+    
   };
+
+  
+
+  
 
     return (
       <>
-      
 
-      <Paper   position="sticky"  className="paper" sx={{background: "#0a1929", mt: 4, color: "#ffffff"}} style={{}} >
-      <Grid  sx={{m: 3, background: "#001e3b"}} style={{minHeight: "30vh", }}  container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+      {/* Wrap this whole thing in a div */}
+      {/* <div className={classes.root} ></div> */}
+      
+      <CssBaseline />
+
+      <Paper   position="sticky"  className="paper" sx={{background: "#0a1929", mt: 4, color: "#ffffff"}} style={{maxWidth: "99vw"}}  >
+      <Grid  sx={{m: 3, background: "#001e3b"}} style={{minHeight: "30vh", maxWidth: "90vw" }}  container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
       <Grid sx={{background: "#001e3b"}}  style={{minHeight: "30vh"}}  xs={12} sm={4}>
 
-      <Card  key={props.id}
+      <Card   key={props.id}
         ref={(element) => assignRef(element, props.id)} // assign a ref object to the card element
         className={props.productClass}
-        onClick={() => handleClick(props.id)}   sx={{ maxWidth: 345, minWidth: 300, margin: 4 }}  >
+        onClick={() => handleClick(props.id)}   sx={{ maxWidth: 345, width: 300, margin: 4 }}  >
             <CardActionArea>
               <CardMedia
                 component="img"
@@ -212,14 +250,14 @@ const Cards = (props ) => {
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
-              {/* Find out why this is not working  */}
+
               <Link to={`/${props.id}`}>View Details</Link> 
       
       
               </Button>
             </CardActions>
             
-            {/* Add in the cart buttons here  */}
+
             { productQuantity > 0 ?
                     <>
                         <Form as={Row}>
