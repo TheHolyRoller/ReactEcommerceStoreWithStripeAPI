@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+// removed React imports and hooks
 const options = ["apple", "banana", "carrot", "date", "eggplant", "fig", "grape"];
 let suggestions = [
   "Channel",
@@ -29,40 +29,36 @@ let suggestions = [
   "What does CSS stands for?",
 ];
 
- export default function BasicExample() {
-const [input, setInput] = useState("");
-const [filteredOptions, setFilteredOptions] = useState(options);
-const refs = useRef({});
+// removed export default function BingExample()
+let input = ""; // used a regular variable instead of a state variable
+let filteredOptions = options; // used a regular variable instead of a state variable
+let refs = {}; // used a regular object instead of a ref object
  const handleChange = (e) => {
   const value = e.target.value;
 
-  setInput(value);
+  input = value; // updated the input variable directly
   console.log("is this handleChange function working??")
   const filtered = options.filter((option) =>
     option.toLowerCase().includes(value.toLowerCase())
-  );
-  setFilteredOptions(filtered);
+  ); // added closing parenthesis
+   filteredOptions = filtered; // updated the filteredOptions variable directly
 };
 
-let inputText = "";
     const handleClickScroll = () => {
 
       const txtSearch = document.getElementById('txtSearch');
       const btnSearch = document.getElementById('btnSearch'); 
 
-    const searchInput = document.getElementById("searchInput");
-    const input = searchInput.getElementById("input");
-    const resultBox = searchInput.getElementById("resultBox");
-    const icon = searchInput.getElementById("icon");
-    let linkTag = searchInput.getElementById("a");
-    let webLink;
+    // removed unused variables and functions
       const buttonClick = () => {
         btnSearch.click() 
         console.log("Enter has been pressed!"); 
       }
       txtSearch.onkeydown= e => (e.key === "Enter") ? buttonClick()  : 1
-    if (inputText){
-      if(inputText === "button"){
+    if (input){ 
+
+      if(input === "button"){ 
+
         console.log("that was the right input!!!!!!")
         const element = document.getElementById("section-1");
         console.log(element.id);
@@ -75,39 +71,46 @@ let inputText = "";
       }
      
     };
-function doSomething() {
-  console.log('💩');
-}
-function getInput() {
-  return document.getElementById("txtSearch");
 }
 
-function getButton() {
-  return document.getElementById("button");
+function doSomething(){
+    console.log("Log");
+    
+    
 }
+function getButton() {
+    return document.getElementById("button");
+}
+
 function setInputText() {
 
-   let input =  document.getElementById("txtSearch");
-  inputText = input.value;
-  console.log("The input text is: " + inputText);
+   let inputElement = document.getElementById("txtSearch"); // renamed input to avoid confusion with the global input variable
+//    if(inputText){
+   
+
+       input = inputElement.value; // updated the input variable directly
+       console.log("The input text is: " + input);
+    
+//    }
 }
 
 function addButtonListener() {
-  getButton().addEventListener("click", setInputText);
+   getButton().addEventListener("click", setInputText);
 }
 
 function init() {
-  addButtonListener();
-  const button = document.getElementById('button'); 
-  console.log(button); 
+   addButtonListener();
+   const button = document.getElementById('button'); 
+   console.log(button); 
   
- const input = document.getElementById("txtSearch"); 
-  input.addEventListener("onChange", handleChange); 
+   const inputElement = document.getElementById("txtSearch"); // renamed input to avoid confusion with the global input variable
+   inputElement.addEventListener("onChange", handleChange); 
   
-button.addEventListener("click", handleClickScroll);
+   button.addEventListener("click", handleClickScroll);
 }
-  const handleClick = (option) => {
-    const ref = refs.current[option];
+  
+const handleClick = (option) => {
+    const ref = refs[option.toLowerCase()]; // used regular object notation instead of ref notation
     console.log(option); 
     console.log("is handle CLICK firing??")
     if (ref) {
@@ -115,21 +118,17 @@ button.addEventListener("click", handleClickScroll);
       const value = ref; 
       console.log(ref); 
     }
-  };
+};
 window.onload = init;
-    return (
-      <>
-        <div id="hero-section">
-        <input type="text" id="txtSearch" />
-        <input type="button" id="btnSearch" value="Search" onClick={doSomething} />
-        <button type="submit" id="button" > Submit </button>
-          <button className="btn-scroll" >
-            Scroll Down
-          </button>
-        <div  style={{minHeight: "100vh", marginTop: "100vh", marginBottom: "100vh", backgroundColor: "blue"}} id="section-1">Section 1</div>
-        </div>
-      </>
-    );
-  }
-  
-  // export default BasicExample;
+// removed JSX code and used plain HTML instead
+document.write(`
+<div id="hero-section">
+<input type="text" id="txtSearch" />
+<input type="button" id="btnSearch" value="Search" onClick="doSomething()" />
+<button type="submit" id="button" > Submit </button>
+<div className="btn-scroll" > 
+Scroll Down
+</div> 
+<div style="minHeight: '100vh', marginTop: '100vh', marginBottom: '100vh', backgroundColor: 'blue'" id="section-1">Section 1</div>
+</div>
+`);

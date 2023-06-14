@@ -38,10 +38,9 @@ import {Button,  Modal} from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
-
 import SearchBar from './SearchBar';
+
+
 import List from './List';
 
 
@@ -64,10 +63,7 @@ import { useState, useContext, useEffect, useRef } from 'react';
 
 function CollapsibleExample() {
     
-    
-    
     const cart = useContext(CartContext);
-
 
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -95,10 +91,6 @@ function CollapsibleExample() {
     
 
     const productsCount = cart.items.reduce((sum, product) => sum + product.quantity, 0);
-    
-    // console.log(cart.items); 
-    // console.log("these are the cart items "); 
-
     
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -166,7 +158,9 @@ function CollapsibleExample() {
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
             {/* Add in The Icon here  */}
-            <FaSearch style={{fontSize: "1.28rem"}} />
+            {/* <FaSearch style={{fontSize: "1.28rem"}} /> */}
+            {/* Add in the Search bar here  */}
+            <SearchBar/>
 
             </Nav.Link>
             <Nav.Link eventKey={2} href="/profile" style={{fontSize: "0rem"}} >

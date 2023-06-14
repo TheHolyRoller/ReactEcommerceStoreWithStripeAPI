@@ -123,7 +123,58 @@
          
          
          Okay for the parts well that is a topic for another day. 
-
+        
+        
+          Okay so let's just talk things through. 
+          
+          
+          First of all the list works for the most part. And another good thing is that 
+          we don't have the screen refreshing each time we add something to the list. 
+          
+          This may need to be added back though. Just so that we have all the details loaded in. 
+          
+          
+          Okay so the list for the most part is working. 
+          
+          The only two things I'd still like to be able to do is add items to the cart and view 
+          the product on the product landing page. 
+          
+          For the most part adding the item to the cart should be pretty doable. 
+          
+          But at the moment the focus is to integrate the functionality so that the product 
+          page with the product details can be viewed from the list by means of a link. 
+          
+          Now the main hurdle to this at the moment is the fact that. When the link is clicked and the 
+          link should work but the reason why it's not working is because we have no product id to pass 
+          to the url. 
+          
+          And since we cannot find any items that match the id from one of the products within 
+          products array then we are ending up with item being undefined. And if item is undefined 
+          
+          then we throw an error because we have no data to work with and the program cannot 
+          reference and manipulate variables that are undefined but instead throw an error. 
+          
+          Now the question is how do make ensure that item is defined. 
+          
+          Well let's first walk through how item is defined in the first place. 
+          
+          First of all we use the useParams React hook to get the url path of the current 
+          page that we are on. 
+          
+          
+          And this url path is set to the current product id that we are viewing. 
+          
+          
+          But now the question is how do we get that product id in the first place and then how do 
+          we set it to the current url path. 
+          
+          Well this has been done before. 
+          
+          What we need to do now is go through that code and reverse engineer what has been done 
+          and then apply that modified code to the current situation. 
+          
+          
+          
         
 
 
@@ -185,12 +236,16 @@ import ChatComponent from '../utilities/ChatComponent';
           
           const { id } = useParams();
           
-          const { secondID } = useParams(); 
-          
 
           const item = PRODUCTS.find((item) => item.id === (id));
- 
-        const {productName, price, productImage} = item; 
+          
+          console.log("This is the ITEM I DON'T KNOW WHY IT'S NOT WORKING ON THE OTHER PAGE"); 
+          console.log(item); 
+          
+          
+          
+          
+          const {productName, price, productImage} = item; 
           
           const [show, setShow] = useState(false);
           const handleClose = () => setShow(false);

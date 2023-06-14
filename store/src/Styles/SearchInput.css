@@ -4,10 +4,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-
-  
 }
-
 
 body{
   background: #f4f5;
@@ -18,7 +15,6 @@ body{
   color: #fff;
   background: #664AFF;
 }
-
 
 .container{
   max-width: 450px;
@@ -77,6 +73,7 @@ body{
 .resultBox li:hover{
   background: #efefef;
 }
+
 
 .searchInput .icon{
   position: absolute;

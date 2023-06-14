@@ -43,6 +43,30 @@ And since we are nesting the routes then we can have duplicate.
 
 
 
+Okay so let's just talk things through. 
+
+
+First of all I can leave a review and set the rating. 
+
+Send it to the database and then have it rendered back. 
+
+
+Now the main challenge is making everything look nice. 
+
+
+First of all I need to look at some examples and then I need to tinker with the 
+
+JSX code and then maybe add in a stylesheet. 
+
+Once that is done then I can get to work on integration and polishing then styling. 
+
+Once that is done then the project is pretty much finished. 
+
+I'd still love to add auth to it though especially so that I can add a login system and 
+give the details of the user that left the review. 
+
+
+
 
 
 
@@ -86,10 +110,8 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import StarIcon from '@mui/icons-material/Star';
 import Box from '@mui/material/Box';
-// import Typography from '@mui/material/Typography';
-// import Rating  from '@mui/material/Rating';
+import Divider from '@mui/material/Divider';
 import { nanoid } from "nanoid";
-
 import { modifiedPath } from "./SendMessage"; 
 
 
@@ -128,7 +150,6 @@ const querySnapshot = await getDocs(messagesRef);
 function ChatComponent() {
 
 
-
   const [count, setCount] = useState(0)
   const [productID, setProductID] = useState("");
   
@@ -153,10 +174,13 @@ console.log(loaded);
 var timeoutID;
 
 
-function reloadPage() {
-  window.location.reload();
-  window.localStorage.setItem('refresh', "1");
-}
+// Fix this reload function so that it reloads the page but it does not do it constantly 
+// DO NOT DELETE!!!! 
+
+// function reloadPage() {
+//   window.location.reload();
+//   window.localStorage.setItem('refresh', "1");
+// }
 
 function clearRefresh() {
   localStorage.removeItem('refresh');
@@ -164,7 +188,7 @@ function clearRefresh() {
 }
 
 if (refresh === null) {
-  timeoutID = setTimeout(reloadPage, 10);
+  // timeoutID = setTimeout(reloadPage, 10);
 }
 
 setTimeout(clearRefresh, 2000);
@@ -177,9 +201,11 @@ const messageArray = [];
 
     console.log("THIS SHOULD BE THE RESULT @$@#$")
     
-    console.log(doc.id, doc.data());
+    // console.log(doc.id, doc.data());
+    console.log( doc.data());
 
-    messageArray.push(doc.id, doc.data()); 
+    // messageArray.push(doc.id, doc.data()); 
+    messageArray.push( doc.data()); 
     
     console.log("THIS IS THE MESSAGES ARRAY"); 
     console.log(messageArray); 
@@ -205,8 +231,8 @@ const messageArray = [];
       
     <ChatBox/>
     <Box>
-      <Typography variant="h6">Rating Component</Typography>
-      <Box display="flex" alignItems="center">
+      {/* <Typography variant="h6">Rating Component</Typography> */}
+      {/* <Box display="flex" alignItems="center">
         <Typography variant="body1">Rating:</Typography>
         <Rating
           name="rating"
@@ -214,24 +240,36 @@ const messageArray = [];
           // onChange={handleRatingChange}
           icon={<StarIcon fontSize="large" />}
         />
-      </Box>
+      </Box> */}
       <Box display="flex" alignItems="center">
-        <Typography variant="body1">Text:</Typography>
+        {/* <Typography variant="body1">Text:</Typography> */}
         {/* <input type="text" value={text} onChange={handleTextChange} /> */}
       </Box>
       {/* <button onClick={handleSubmit}>Submit</button> */}
       <Box>
-        <Typography variant="h6">Reviews</Typography>
-        {reviews.map((review, index) => (
+        {/* <Typography variant="h6">Reviews</Typography> */}
+        {messageArray.map((review, index) => (
+        <Stack spacing={5}>
+        <Box  >
+         <Typography style={{marginTop: "3rem"}}  variant="body1"> USER: {review.user}</Typography>
           <Box key={index} display="flex" alignItems="center">
             <Rating
               name={`review-${index}`}
               value={review.rating}
               readOnly
               icon={<StarIcon fontSize="large" />}
-            />
-            <Typography variant="body1">{review.text}</Typography>
+              />
+
+
+            <Divider />
+          
           </Box>
+          
+          <Typography  variant="body1">{review.message}</Typography> 
+        </Box>
+          
+          
+              </Stack>
         ))}
       </Box>
     </Box>

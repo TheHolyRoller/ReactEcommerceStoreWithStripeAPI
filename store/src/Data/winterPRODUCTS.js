@@ -14,19 +14,19 @@ import product8 from '../assets/products/TissotWatch.jpg';
 
 
 
-export const PRODUCTS = [
+export const winterPRODUCTS = [
   {
     id: "price_1NC2XCECwV7seoblbhR4X48B",
     productName: "IPhone",
     price: 999.0,
-    productImage: "https://unsplash.com/photos/4_jhDO54BYg",
+    productImage: product1,
     productClass: "Iphones"
   },  
   {
     id: "price_1NC2WoECwV7seoblAvg1TCWn",
     productName: "Macbook Pro 2022 (M1)",
     price: 1999.0,
-    productImage: "https://unsplash.com/photos/8pOTAtyd_Mc",
+    productImage: product2,
     productClass: "Macs"
     
     
@@ -36,7 +36,7 @@ export const PRODUCTS = [
     id: "price_1NC2WQECwV7seoblJcR9eEo2",
     productName: "Cannon M50 Camera",
     price: 699.0,
-    productImage: "https://unsplash.com/photos/6VPEOdpFNAs",
+    productImage: product3,
     productClass: "Cameras"
     
   },
@@ -44,7 +44,7 @@ export const PRODUCTS = [
     id: "price_1NC2VUECwV7seoblE4HmCCv5",
     productName: "WLS Van Gogh Denim Jacket",
     price: 228.0,
-    productImage: "https://unsplash.com/photos/6VPEOdpFNAs",
+    productImage: product4,
     productClass: "Shoes"
     
   },
@@ -52,7 +52,7 @@ export const PRODUCTS = [
     id: "price_1NC2ULECwV7seoblVFQrkjtz",
     productName: "LED Light Strips",
     price: 19.99,
-    productImage: "https://unsplash.com/photos/6VPEOdpFNAs",
+    productImage: product5,
     productClass: "Lights"
     
   },
@@ -60,7 +60,7 @@ export const PRODUCTS = [
     id: "price_1NC2TlECwV7seoblKLcqkZyo",
     productName: "SPECTRUM LS TEE",
     price: 68.0,
-    productImage: "https://unsplash.com/photos/6VPEOdpFNAs",
+    productImage: product6,
     productClass: "Shirts"
     
   },
@@ -68,7 +68,7 @@ export const PRODUCTS = [
     id: "price_1NC2SAECwV7seoblsUpYIjNd",
     productName: "AUTO SERVICE SHIRT by GOLF WANG",
     price: 120.0,
-    productImage: "https://unsplash.com/photos/6VPEOdpFNAs",
+    productImage: product7,
     productClass: "Jackets"
     
   },
@@ -77,7 +77,7 @@ export const PRODUCTS = [
     id: "price_1N9QWMECwV7seobltcqPgIAW",
     productName: "DON'T TRIP UNSTRUCTURED HAT",
     price: 40.0,
-    productImage: "https://unsplash.com/photos/6VPEOdpFNAs",
+    productImage: product8,
     productClass: "Hats"
     
   },
@@ -88,7 +88,7 @@ export const PRODUCTS = [
 // Add in the get product data function here 
 
 function getProductData(id) {
-  let productData = PRODUCTS.find(product => product.id === id);
+  let productData = winterPRODUCTS.find(product => product.id === id);
 
   if (productData === undefined) {
       console.log("Product data does not exist for ID: " + id);

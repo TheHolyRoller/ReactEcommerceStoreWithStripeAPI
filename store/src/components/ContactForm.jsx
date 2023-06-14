@@ -2,6 +2,9 @@
 
 import React, { useRef, useState, useEffect, useCallback, useContext, useReducer} from "react";
 
+
+
+// Get Captcha working with Google 
 // import Captcha, { ReCAPTCHA } from 'react-google-recaptcha'; 
 
 
@@ -22,26 +25,25 @@ const Form = () => {
   const [submitted, setSubmitted] = useState(false);
   
   const [recaptchaToken, setRecaptchaToken] = useState()
-  
+
   
   const formID = "g6Grws8t"; 
   
   const recaptchaKey = "6Ldqg0klAAAAAEtnIhw2r7GGeK4If9_pUnq75tb4"; 
-  
+
   
   const recaptchaRef = useRef(); 
-  
   
   const formSparkURL = `https://submit-form.com/${formID}`;
   
   const updateRecaptchaToken = (token) => {
             
         setRecaptchaToken(token); 
-    
+
   }
-  
-  
-  
+
+
+  // CHECK ON FORM SPARK AND UPDATE DETAILS AND TOKEN 
   const onSubmit = async (e) => {
     e.preventDefault();
     await fetch(formSparkURL, {
@@ -79,7 +81,7 @@ const Form = () => {
       
       
     </div>
-    
+                                    {/* ADD IN THE FORM ID HERE  */}
     <form className="form" action=" https://submit-form.com/your-form-id" method="POST"   onSubmit={onSubmit}>
         
     {submitted ? <div className="submittedMessage">Thanks for reaching out! </div> : <div></div>}
@@ -95,6 +97,7 @@ const Form = () => {
           required
           />
       </div>
+      
       <div className="form-group">
         {/* <label className="label"  htmlFor="email">Email</label> */}
         <input

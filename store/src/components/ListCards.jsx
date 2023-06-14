@@ -74,16 +74,15 @@ import { ThemeProvider } from '@mui/material/styles';
 import { StyledEngineProvider } from "@mui/material/styles";
 
 
-// import {CssBaseline} from "@mui/material/CssBaseline";
 import { Box } from '@mui/material';
-// Used to import CARD 
-// import { Button, Form, Row, Col } from 'react-bootstrap';
 
 
 
 import { ListContext } from '../ListContext';
-import { useContext, useRef, useEffect, useState } from 'react';
+// import { useContext, useRef, useEffect, useState } from 'react';
 
+import { CartContext } from '../CartContext';
+import { useContext, useRef, useEffect, useState } from 'react';
 import { PRODUCTS } from '../Data/products';
 
 const ListCards = (props ) => {
@@ -94,21 +93,14 @@ const ListCards = (props ) => {
   const cardRefs = useRef([]);
   
   
+  // CONTEXT SEGMENT 
+  const cart = useContext(CartContext);
   
-  // console.log("THESE ARE THE PROPS ID ARE THEY THERE!!!!+++++++++")
-  // console.log(props); 
-  // console.log(props.product);
+  
+  
+  
   
   const name =  props.product;
-  
-  
-  // console.log(name.id); 
-  // console.log("this is logging the id"); 
-  
-  
-  
-  
-  
 
   // A state variable to store the selected item id
   const [selectedId, setSelectedId] = useState(null);
@@ -117,10 +109,7 @@ const ListCards = (props ) => {
 
   const product = props.product; 
   
-  // console.log("this is the ListCARD ListCARD IMAGE IMAGE IMAGE++++!!!!!");
-  // console.log(props.image);
-  
-  // Find out if this actually works 
+
   const productQuantity = list.getProductQuantity(product.id);
   
   useEffect(() => {
@@ -145,6 +134,7 @@ const ListCards = (props ) => {
 
     return (
       <>
+      
       
       <Paper   position="sticky"  className="paper" sx={{background: "#0a1929", mt: 4, color: "#ffffff"}} style={{}} >
       <Grid  sx={{m: 3, background: "#001e3b"}} style={{minHeight: "30vh", }}  container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
@@ -172,13 +162,10 @@ const ListCards = (props ) => {
             </CardActionArea>
             <CardActions>
               <Button size="small" color="primary">
-              {/* THIS NEEDS FIXING  */}
               <Link to={`/${props.id}`}>View Details</Link> 
-      
+
               </Button>
             </CardActions>
-            
-            
 
             { productQuantity > 0 ?
                     <>

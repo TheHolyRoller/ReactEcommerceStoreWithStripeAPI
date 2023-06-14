@@ -67,6 +67,12 @@ const { id } = useParams();
   
   const sendMessage = async (event) => {
     event.preventDefault();
+    if (message.trim() === "") {
+      alert("Reviews cannot be empty!"); 
+      
+      return ; 
+    }
+    
        productID = "myid";
     await addDoc(collection(dataBase, id ), {
 

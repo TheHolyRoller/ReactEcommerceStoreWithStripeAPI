@@ -33,6 +33,7 @@ import { ListItem } from '@mui/material';
 import {Button,  Card,  Modal} from 'react-bootstrap';
 
 
+
 import CartProduct from '../Data/CartProduct'; 
 import Cards from './Cards';
 import ListCards from './ListCards';
@@ -59,8 +60,8 @@ function List(props) {
     if(obj.hasOwnProperty("id")){
     
       
-      console.log(obj.id); 
       console.log("is this map ACTUALLY WORKING???!#@$@")
+      console.log(obj.id); 
     
       ids.push(obj.id); 
       
@@ -73,37 +74,52 @@ function List(props) {
     
     let myProduct = [{}];
     
+    
+    console.log()
+    
     // Loop through the products Array here and Add each object into a new Array that matches the id 
     ids.forEach((id) => {
       
-      let match  = PRODUCTS.find((obj) =>    obj.id === id); 
+      // Why does this render out an empty item. 
+      
+      let match  = PRODUCTS.find((obj) =>  obj.id === id); 
+      
       
       if(match){
         
+        
+        
         console.log("THIS IS THE MATCHING ARRAY AT WORK ")
-        console.log(match)
+        console.log(match);
+        
+        console.log("this is the match id "); 
+        
+        console.log(match.id); 
+        
+        
         myProduct.push(match); 
+        console.log("this is the length of the product array"); 
+        
+        console.log(myProduct.length); 
+        
 
       }
       
     } ) 
     
-    
-    console.log("IS THIS THE ITEM ID??????")
-    
-    const myID = myItems.id; 
+    myProduct.shift(); 
     
     
-    // Now loop through the matches Array and Extract the data from that and plug it 
-    // into each component 
+    
+    // console.log("IS THIS THE ITEM ID??????")
+    
+    // const myID = myItems.id; 
     
     const listCount = list.items.reduce((sum, product) => sum + product.quantity, 0);
     
     const listItems = list.items; 
 
     const productData = getProductData(id);
-
-    
     
   return (
 
@@ -116,13 +132,11 @@ function List(props) {
         {/* Find out why it''s saying this is not a function  */}
      {myProduct.map((currentProduct, idx) => (
 
-       <ListCards  key={idx} product={currentProduct} image={currentProduct.productImage} title={currentProduct.productName}  quantity={currentProduct.quantity}>
+       <ListCards  key={idx} product={currentProduct} id={currentProduct.id} image={currentProduct.productImage} title={currentProduct.productName}  quantity={currentProduct.quantity}>
        Card
        </ListCards>
        
         ))}
-        
-                            
 
        <h1>Total: {list.getTotalCost().toFixed(2)}</h1>
 
