@@ -1,184 +1,69 @@
-        /** 
+/** 
+
+Okay so let's just talk things through. 
 
 
-        Okay so let's just talk 
-
-        things through at the moment. 
-
-
-        First of all I need to get the product id for the collection id. 
-
-        Not only so I can obtain product details but also so I can create a product review and assign 
-
-        it the product id for the id of the collection. 
+There is of course a lot of styling and polishing and design work that 
+needs to be done to the website. 
 
 
-        The problem I encountered was that I tried to assign the product id after the variable was rendered. 
-
-        This should be solved by assigning the product Id right when the user clicks on the product 
-        page. 
-
-        This is because the product id is injected in with the product page. 
+This needs to be done after everything is functioning correctly, however, 
 
 
-        Now there's the question of hwo to get the product id and the right details immediately 
-        when the user does not click on the product page but clicks on the product review section. 
-
-        This can be solved the same way as the problem before. 
-
-        All that needs to be done is to inject the product id into the file immediately the same 
-
-        way this was done to display the right product details. 
-
-        Okay now's there's something that I did not really think about before. 
-
-        And this is the question of how do we want to display the average rating of a single product 
-        without the customer having to click on the link. 
-
-        Now this is a question that is hard to answer immediately without knowing all the details 
-
-        but it should be solved quite easily. 
+So the plan is now is to get the firebase and contact api working. 
 
 
-        There could be several solutions to this. 
-
-        First of context could be used. 
-
-        Or I could just add in the average rating in with the rest of the product. 
-      
-      
-        Okay so that's roughly how we're going to implement things. 
-        
-        Just to recap. When the product is clicked to leave a review the product id. Will be injected into that 
-        component. 
-        
-        Then this id will be used to create the collection that will later be queried when the user clicks 
-        
-        on the review section. 
-        
-        As for displaying the overall average product. 
-        
-        This will be calculated each time a customer leaves a review. 
-        
-        Now context might be the best thing for this. 
-        
-        
-        First of all my idea of using the product detail variables was a good idea but the only problem is that 
-        the product review average is something that is constantly changing. 
-        
-        There must be a way around this. First of all context should be able to deal with this. 
-        
-        But as well you could use the same technique. 
-        
+Then once that is done I can start on fixing the cards. 
 
 
-        
-        There is one idea is to drill the props in. 
-        
-        This means that instead of taking the needed details from the product array I can import the 
-        variable that is updated separately. 
-        
-        Now how would this be updated in a timely manner and how would it be kept up to date. 
-        
-        
-        Well one idea is through the use of a useEffect hook. And another idea is that it is updated when 
-        a user leaves a review. 
-        
-        My only question is if the user leaves a review will the variable be properly updated. 
-        
-        If it is not then how can we make sure it updates properly. 
-        
-        As always when I encounter problems like this. I can look at some examples, I can ask on forums. 
-        
-        I can ask bing and I can do some googling. I can look through some github examples. 
-        
-        And I can always try out a whole bunch of my own ideas and fully exhaust each one before trying a 
-        radically different solution. 
-        
-        
-        So just to recap for the night. With the problem of the obtaining the id for the collection. 
-        
-        Well we just need to inject in the product id the same way we did that using the useParams hook because we 
-        set the product id to be the url path. 
-        
-        This needs to be set the way I set the URL path before. 
-        
-        Now there is a whole procedure for doing this but if you rinse and repeat the process that is how 
-        
-        you can inject the product id into the url. 
-        
-        Then once it's in the url you can use the use params hook in order to get the product id. 
-        
-        Once you have the product id then you can set the value of that to the collection id. 
-        
-        
-        Okay so that's the rough idea. 
-        
-        The same produce can be repeated for the product review section in leaving the product review. 
-        
-        
-         Now for updating the average product review rating. 
-         
-         We can just add in a context and then use a useEffect hook to keep the variable up to date. 
-         
-         
-         Okay for the parts well that is a topic for another day. 
-        
-        
-          Okay so let's just talk things through. 
-          
-          
-          First of all the list works for the most part. And another good thing is that 
-          we don't have the screen refreshing each time we add something to the list. 
-          
-          This may need to be added back though. Just so that we have all the details loaded in. 
-          
-          
-          Okay so the list for the most part is working. 
-          
-          The only two things I'd still like to be able to do is add items to the cart and view 
-          the product on the product landing page. 
-          
-          For the most part adding the item to the cart should be pretty doable. 
-          
-          But at the moment the focus is to integrate the functionality so that the product 
-          page with the product details can be viewed from the list by means of a link. 
-          
-          Now the main hurdle to this at the moment is the fact that. When the link is clicked and the 
-          link should work but the reason why it's not working is because we have no product id to pass 
-          to the url. 
-          
-          And since we cannot find any items that match the id from one of the products within 
-          products array then we are ending up with item being undefined. And if item is undefined 
-          
-          then we throw an error because we have no data to work with and the program cannot 
-          reference and manipulate variables that are undefined but instead throw an error. 
-          
-          Now the question is how do make ensure that item is defined. 
-          
-          Well let's first walk through how item is defined in the first place. 
-          
-          First of all we use the useParams React hook to get the url path of the current 
-          page that we are on. 
-          
-          
-          And this url path is set to the current product id that we are viewing. 
-          
-          
-          But now the question is how do we get that product id in the first place and then how do 
-          we set it to the current url path. 
-          
-          Well this has been done before. 
-          
-          What we need to do now is go through that code and reverse engineer what has been done 
-          and then apply that modified code to the current situation. 
-          
-          
-          
-        
+
+Then once the cards are fixed I can then move onto. 
 
 
-        */
+
+
+
+List of polishing Tasks: 
+
+
+1. Fix cards on smaller screens
+
+2. Get firebase contact and email signup work 
+
+3. Search bar on mobile 
+
+4. Image covering checkout 
+
+5. Content for different pages 
+
+6. Footer and Routes 
+
+
+7. Images to the side of the product image 
+
+8. Product Landing Page layout 
+
+
+9. Title and Product Image 
+
+10. User profile 
+
+11. Product ids 
+
+12. Home button icon 
+
+13. Footer layout and appearance 
+
+14. Nav & page styling
+
+15. Format Currency and price 
+
+
+
+
+
+
+*/
 
 
 
@@ -224,7 +109,6 @@
         import { PRODUCTS } from '../Data/products';
         import { CartContext } from "../CartContext";
         import { ListContext } from '../ListContext'; 
-        // import Link from '@mui/material/Link';
 
         import CartProduct from '../Data/CartProduct';
         import { FaShoppingCart } from "react-icons/fa";
@@ -236,20 +120,24 @@ import ChatComponent from '../utilities/ChatComponent';
           
           const { id } = useParams();
           
+          console.log("is the id defined"); 
+          console.log(id); 
 
           const item = PRODUCTS.find((item) => item.id === (id));
           
           console.log("This is the ITEM I DON'T KNOW WHY IT'S NOT WORKING ON THE OTHER PAGE"); 
           console.log(item); 
-          
-          
-          
+
           
           const {productName, price, productImage} = item; 
           
           const [show, setShow] = useState(false);
           const handleClose = () => setShow(false);
           const handleShow = () => setShow(true);
+          
+          
+          const [flag, setFlag] = useState(false);
+
 
           const cart = useContext(CartContext);
           
@@ -269,18 +157,31 @@ import ChatComponent from '../utilities/ChatComponent';
           
 
           const listQuantity = list.getProductQuantity(product.id); 
-          
-
-          useEffect(() => {
-
-          }, [selectedId]);
-
-
-          const assignRef = (element, id) => {
-            if (element) {
-              cardRefs.current[id - 1] = element;
+          const reloadPage = () => {
+            window.location.reload();
+          };
+        
+          // A function that logs hello world to the console
+          const logHelloWorld = () => {
+            console.log("Hello world");
+          };
+        
+          // A function that contains the logic to run the code
+          const runLogic = () => {
+            // If the flag is false, set a timeout to reload the page after 100 milliseconds and set the flag to true
+            if (!flag) {
+              setTimeout(reloadPage, 100);
+              setFlag(true);
+            }
+            // Otherwise, log hello world to the console
+            else {
+              logHelloWorld();
             }
           };
+        
+          // Add an event listener to run the logic function when the window loads
+          window.addEventListener("load", runLogic);
+          
           
           return (
             <div className="mainContainer" >
@@ -300,9 +201,8 @@ import ChatComponent from '../utilities/ChatComponent';
             
             <div id="titleFirstSection">
               Citizen
-              
               <ChatComponent/>
-              
+
             </div>
             
             <div id="productTitleSectionContainer" >
@@ -311,9 +211,7 @@ import ChatComponent from '../utilities/ChatComponent';
             <div id="titleSecondSection">
             {productName}
             </div>
-                
-            
-            
+
             </div>
             <div id="productMetaDataContainer" >
             <div id="productMetaData">
@@ -324,7 +222,6 @@ import ChatComponent from '../utilities/ChatComponent';
             
             </div>
             <div id="productSectionDividerLineContainer" >
-            
 
             <div id="productSectionDividerLine" >
             </div>
@@ -335,8 +232,7 @@ import ChatComponent from '../utilities/ChatComponent';
             <div id="productDetailsSection">
               
             <div id="productDetailRow">
-            
-              
+
             <div id="productDetailHeader" >
             Movement 
             </div>
@@ -344,9 +240,6 @@ import ChatComponent from '../utilities/ChatComponent';
             <div id="productDetailMeta">
               Echo Drive H504 
             </div>
-              
-            
-            
             
             </div>
             <div id="productDetailRow">

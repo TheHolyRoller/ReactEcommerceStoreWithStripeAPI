@@ -174,13 +174,6 @@ console.log(loaded);
 var timeoutID;
 
 
-// Fix this reload function so that it reloads the page but it does not do it constantly 
-// DO NOT DELETE!!!! 
-
-// function reloadPage() {
-//   window.location.reload();
-//   window.localStorage.setItem('refresh', "1");
-// }
 
 function clearRefresh() {
   localStorage.removeItem('refresh');
@@ -188,7 +181,7 @@ function clearRefresh() {
 }
 
 if (refresh === null) {
-  // timeoutID = setTimeout(reloadPage, 10);
+
 }
 
 setTimeout(clearRefresh, 2000);
@@ -197,16 +190,10 @@ setTimeout(clearRefresh, 2000);
 const messageArray = []; 
     
   querySnapshot.forEach((doc) => {
-
-
-    console.log("THIS SHOULD BE THE RESULT @$@#$")
     
-    // console.log(doc.id, doc.data());
-    console.log( doc.data());
-
-    // messageArray.push(doc.id, doc.data()); 
+    // console.log("THIS SHOULD BE THE RESULT @$@#$")
+    // console.log( doc.data());
     messageArray.push( doc.data()); 
-    
     console.log("THIS IS THE MESSAGES ARRAY"); 
     console.log(messageArray); 
     
@@ -221,9 +208,6 @@ const messageArray = [];
     {text: "my text", rating: 5}, 
     {text: "good text", rating: 3}, 
     {text: "good review", rating: 5}
-    
-    
-    
   ]
 
   return (
@@ -231,23 +215,11 @@ const messageArray = [];
       
     <ChatBox/>
     <Box>
-      {/* <Typography variant="h6">Rating Component</Typography> */}
-      {/* <Box display="flex" alignItems="center">
-        <Typography variant="body1">Rating:</Typography>
-        <Rating
-          name="rating"
-          value={rating}
-          // onChange={handleRatingChange}
-          icon={<StarIcon fontSize="large" />}
-        />
-      </Box> */}
+      
       <Box display="flex" alignItems="center">
-        {/* <Typography variant="body1">Text:</Typography> */}
-        {/* <input type="text" value={text} onChange={handleTextChange} /> */}
       </Box>
-      {/* <button onClick={handleSubmit}>Submit</button> */}
       <Box>
-        {/* <Typography variant="h6">Reviews</Typography> */}
+        
         {messageArray.map((review, index) => (
         <Stack spacing={5}>
         <Box  >
@@ -259,8 +231,6 @@ const messageArray = [];
               readOnly
               icon={<StarIcon fontSize="large" />}
               />
-
-
             <Divider />
           
           </Box>

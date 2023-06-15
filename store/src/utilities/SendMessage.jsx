@@ -1,33 +1,9 @@
 /** 
-Okay so let's just talk things through now. 
-
-So I can set the Rating along with the stars and I can add a rating along with the amount 
-of stars and I can render it to the screen. 
-
-
-Okay so that's good. 
-
-The main thing I want to do now is take number from the star rating from every review and 
-render it out to the screen. 
-
-So basically I'll do this within the card that renders out each message. 
-
-Now the thing is I need to get hold of each rating number and set it to a variable. 
-
-Once this variable has been set then I can plug it into the rating component provided 
-by material ui. 
-
-
-So let's get a feel for how the messages are rendered out to the screen and see how we can 
-build on this. 
 
 
 
 
 */
-
-
-
 
 
 import { useState } from "react";

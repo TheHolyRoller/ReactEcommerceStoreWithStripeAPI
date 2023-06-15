@@ -1,0 +1,13 @@
+
+/* Add in the id of the element you want to change here  */
+#gridSection{
+    margin-left: 10% !important;
+}
+@media(max-width: 500px){
+    #gridSection{
+    display: grid !important;
+    justify-content: center !important;
+    margin-left: 0.3% !important;
+    }
+}
+
